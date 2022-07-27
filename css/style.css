@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+}
+ul{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition: all 0.3s linear;
+
+}
+
+ul li{
+    list-style-type: none;
+    font-size: 3em;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    transition: all 0.3s linear;
+}
+
+ul:hover li{
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #000;
+}
+ul li:hover{
+    background: #ffff;
+    -webkit-text-stroke-fill: #000;
+    color: #000;
+}
+li::before{
+
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 100vh;
+    background-color: red;
+    z-index: -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.3s linear;
+    font-size: 3em;
+    letter-spacing: 10px;
+
+}
+
+ul li:nth-child(1):before{
+    background:linear-gradient(#ff9a33 0%, #ff9a33 33%, #fff 33%, #fff 66%, #138807 66%, #138807 100% );
+
+}
+ul li:nth-child(2)::before{
+    background: linear-gradient( #fff 0%, #fff 33%, #0036A8 33%, #0036A8 66% , #D62718 66%, #D62718 100%);
+
+}
+ul li:nth-child(3)::before{
+
+    background: linear-gradient(#0078BC 0%,  #0078BC 50%, #F6EA00 50%, #F6EA00 100%);
+}
+ul li:hover::before{
+
+    content: attr(data-text);
+    opacity: 1;
+    letter-spacing: 2px;
+    color: transparent;
+    -webkit-text-stroke: 1px #000;
+}
